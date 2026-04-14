@@ -45,7 +45,7 @@ export function PricingWithChart() {
     <div className="mx-auto max-w-7xl">
       <div className="mx-auto mb-10 max-w-2xl text-center">
         <p className="text-xs uppercase tracking-[0.2em] text-zinc-400">Pricing</p>
-        <h2 className="mt-3 text-3xl font-semibold text-zinc-100 md:text-5xl">
+        <h2 className="font-display mt-3 text-3xl font-semibold text-zinc-100 md:text-5xl">
           Pricing that scales with your product.
         </h2>
         <p className="mt-4 text-sm text-zinc-300 md:text-base">
@@ -92,8 +92,8 @@ export function PricingWithChart() {
               <span className="my-3 block text-3xl font-bold text-indigo-300">$299</span>
               <p className="text-sm text-zinc-400">Perfect for growing product teams and SaaS startups</p>
             </div>
-            <div className="h-fit w-full rounded-lg border border-white/10 bg-black/35 p-2">
-              <Card className="border-white/10 bg-black/45 text-zinc-100">
+            <div className="h-fit w-full rounded-lg border border-white/10 bg-slate-900/40 p-2">
+              <Card className="border-white/10 bg-slate-900/55 text-zinc-100">
                 <CardHeader className="space-y-0 border-b border-white/10 p-3">
                   <CardTitle className="text-lg">Plan Popularity</CardTitle>
                   <CardDescription className="text-xs text-zinc-400">

@@ -6,10 +6,10 @@ export function EnergyFooter() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="border-t border-white/10 bg-black/50 px-6 py-12 md:px-10">
+    <footer className="border-t border-white/10 bg-slate-950/55 px-6 py-12 md:px-10">
       <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-[1.2fr_0.8fr_0.8fr_0.8fr]">
         <div>
-          <p className="text-sm font-semibold tracking-[0.08em] text-zinc-100 uppercase">
+          <p className="font-display text-sm font-semibold tracking-[0.08em] text-zinc-100 uppercase">
             Black.
           </p>
           <p className="mt-4 max-w-sm text-sm leading-relaxed text-zinc-400">

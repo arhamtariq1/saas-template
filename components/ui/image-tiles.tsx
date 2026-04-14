@@ -119,13 +119,13 @@ const fourthImageVariants: Variants = {
 export default function ImageReveal({ leftImage, middleImage, rightImage, fourthImage }: ImageRevealProps) {
   return (
     <motion.div
-      className="relative mx-auto my-2 hidden h-64 w-[620px] items-center justify-center md:flex"
+      className="relative mx-auto my-2 hidden h-72 w-[700px] items-center justify-center md:flex"
       variants={containerVariants}
       initial="initial"
       animate="animate"
     >
       <motion.div
-        className="absolute h-48 w-48 origin-bottom-right overflow-hidden rounded-2xl border border-white/10 bg-zinc-950 shadow-2xl"
+        className="absolute h-60 w-56 origin-bottom-right overflow-hidden rounded-2xl border border-white/10 bg-zinc-950 shadow-2xl"
         variants={leftImageVariants}
         whileHover="hover"
         animate="animate"
@@ -139,7 +139,7 @@ export default function ImageReveal({ leftImage, middleImage, rightImage, fourth
       </motion.div>
 
       <motion.div
-        className="absolute h-48 w-48 origin-bottom-left overflow-hidden rounded-2xl border border-white/10 bg-zinc-950 shadow-2xl"
+        className="absolute h-60 w-56 origin-bottom-left overflow-hidden rounded-2xl border border-white/10 bg-zinc-950 shadow-2xl"
         variants={middleImageVariants}
         whileHover="hover"
         animate="animate"
@@ -153,7 +153,7 @@ export default function ImageReveal({ leftImage, middleImage, rightImage, fourth
       </motion.div>
 
       <motion.div
-        className="absolute h-48 w-48 origin-bottom-right overflow-hidden rounded-2xl border border-white/10 bg-zinc-950 shadow-2xl"
+        className="absolute h-60 w-56 origin-bottom-right overflow-hidden rounded-2xl border border-white/10 bg-zinc-950 shadow-2xl"
         variants={rightImageVariants}
         whileHover="hover"
         animate="animate"
@@ -167,7 +167,7 @@ export default function ImageReveal({ leftImage, middleImage, rightImage, fourth
       </motion.div>
 
       <motion.div
-        className="absolute h-44 w-44 origin-bottom-left overflow-hidden rounded-2xl border border-white/10 bg-zinc-950 shadow-2xl"
+        className="absolute h-56 w-52 origin-bottom-left overflow-hidden rounded-2xl border border-white/10 bg-zinc-950 shadow-2xl"
         variants={fourthImageVariants}
         whileHover="hover"
         animate="animate"

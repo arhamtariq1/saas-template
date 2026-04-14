@@ -31,7 +31,7 @@ export function Navbar() {
             {/* <span className="grid h-7 w-7 place-items-center rounded-sm border border-white/20 text-[10px] font-bold">
               I
             </span> */}
-            <span className="text-sm font-semibold tracking-[0.08em] uppercase">
+            <span className="font-display text-sm font-semibold tracking-[0.08em] uppercase">
               Black.
             </span>
           </Link>
@@ -54,7 +54,7 @@ export function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.28 }}
-            className="fixed inset-0 z-[100] bg-black/90 backdrop-blur-sm"
+            className="fixed inset-0 z-[100] bg-slate-950/85 backdrop-blur-sm"
           >
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.08),transparent_55%)]" />
             <nav className="relative mx-auto flex min-h-screen w-full max-w-[1400px] items-center px-6 md:px-12">

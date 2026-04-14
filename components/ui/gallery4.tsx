@@ -56,7 +56,7 @@ export function Gallery4({
       <div className="mb-8 flex items-end justify-between gap-6 md:mb-12">
         <div className="max-w-2xl">
           <p className="mb-3 text-xs uppercase tracking-[0.2em] text-zinc-400">Projects</p>
-          <h2 className="text-3xl font-semibold text-zinc-100 md:text-5xl">{title}</h2>
+          <h2 className="font-display text-3xl font-semibold text-zinc-100 md:text-5xl">{title}</h2>
           <p className="mt-4 text-sm text-zinc-300 md:text-base">{description}</p>
         </div>
         <div className="hidden shrink-0 gap-2 md:flex">
@@ -97,13 +97,13 @@ export function Gallery4({
           {items.map((item) => (
             <CarouselItem key={item.id} className="basis-[86%] pl-0 pr-4 md:basis-1/2 lg:basis-1/3">
               <a href={item.href} className="group block h-full rounded-2xl">
-                <article className="relative h-full min-h-[23rem] overflow-hidden rounded-2xl border border-white/10 bg-black/40 backdrop-blur-xl">
+                <article className="relative h-full min-h-[23rem] overflow-hidden rounded-2xl border border-white/10 bg-slate-900/45 backdrop-blur-xl">
                   <img
                     src={item.image}
                     alt={item.title}
                     className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/45 to-black/10" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/45 to-slate-900/10" />
                   <div className="absolute inset-x-0 bottom-0 p-6 md:p-7">
                     <h3 className="text-xl font-semibold text-zinc-100">{item.title}</h3>
                     <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-zinc-300">

@@ -133,7 +133,7 @@ const Hero = React.forwardRef<HTMLElement, HeroProps>(
               viewport={{ once: true }}
               transition={{ delay: 0.45, duration: 0.72, ease: "easeOut" }}
               className={cn(
-                "text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl",
+                "font-display text-4xl font-semibold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl",
                 titleClassName,
               )}
             >
@@ -189,10 +189,10 @@ const Hero = React.forwardRef<HTMLElement, HeroProps>(
             >
               <div className="relative flex justify-center">
                 <ImageReveal
-                  leftImage="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=80"
-                  middleImage="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=80"
-                  rightImage="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1400&q=80"
-                  fourthImage="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1400&q=80"
+                  leftImage="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1600&q=80"
+                  middleImage="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80"
+                  rightImage="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1600&q=80"
+                  fourthImage="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&w=1600&q=80"
                 />
               </div>
             </motion.div>

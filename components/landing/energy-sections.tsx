@@ -33,6 +33,17 @@ const metrics = [
   { label: "Teams Onboarded", value: "25K+" },
 ] as const
 
+const marqueeItems = [
+  "AI Powered",
+  "Lightning Fast",
+  "Enterprise Security",
+  "99.9% Uptime",
+  "Realtime Insights",
+  "No-code Automation",
+  "SSO + RBAC",
+  "Developer APIs",
+] as const
+
 const featurePanels = [
   {
     id: ".01",
@@ -139,7 +150,7 @@ export function EnergySections() {
           >
             <div className="relative">
               <p className="text-xs uppercase tracking-[0.2em] text-zinc-400">Features</p>
-              <h2 className="mt-3 text-2xl font-medium text-zinc-100 md:text-3xl">
+              <h2 className="font-display mt-3 text-2xl font-medium text-zinc-100 md:text-3xl">
                 Engineered for modern SaaS teams.
               </h2>
             </div>
@@ -173,7 +184,7 @@ export function EnergySections() {
                       {panelId}
                     </p>
                   </div>
-                  <h3 className="mt-5 max-w-xs text-3xl font-semibold uppercase leading-[0.95] text-zinc-100 md:text-2xl">
+              <h3 className="font-display mt-5 max-w-xs text-3xl font-semibold uppercase leading-[0.95] text-zinc-100 md:text-2xl">
                     {item.title}
                   </h3>
                   <p className="mt-4 max-w-sm text-sm leading-relaxed text-zinc-300">
@@ -186,6 +197,30 @@ export function EnergySections() {
           </div>
         </div>
       </section>
+
+      <section className="px-0 pb-8 md:pb-12">
+        <div className="relative overflow-hidden border-y border-white/10 bg-slate-950/55 py-3">
+          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-background to-transparent" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-background to-transparent" />
+
+          <motion.div
+            className="flex w-max gap-3"
+            animate={{ x: ["0%", "-50%"] }}
+            transition={{ duration: 28, repeat: Infinity, ease: "linear" }}
+          >
+            {[...marqueeItems, ...marqueeItems, ...marqueeItems].map((item, i) => (
+              <div
+                key={`${item}-${i}`}
+                className="inline-flex shrink-0 items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-xs text-zinc-200 md:text-sm"
+              >
+                <span className="h-1.5 w-1.5 rounded-full bg-indigo-300" />
+                <span className="whitespace-nowrap">{item}</span>
+              </div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
       <section className="px-6 py-20 md:px-10">
         <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.85fr_1.15fr]">
           <div>
@@ -212,7 +247,7 @@ export function EnergySections() {
                   initial={false}
                   animate={{ flex: isActive ? 4.2 : 1 }}
                   transition={{ duration: 0.35, ease: "easeInOut" }}
-                  className="relative min-h-[340px] overflow-hidden rounded-[1.4rem] border border-white/15 bg-black/70"
+                  className="relative min-h-[340px] overflow-hidden rounded-[1.4rem] border border-white/15 bg-slate-900/70"
                 >
                   <Image
                     src={item.image}
@@ -222,7 +257,7 @@ export function EnergySections() {
                     className={`object-cover transition duration-500 ${isActive ? "opacity-80" : "opacity-40 grayscale"
                       }`}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/20" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-900/50 to-slate-900/20" />
 
                   <motion.div
                     className="absolute inset-0 flex items-center justify-center px-2"
@@ -263,7 +298,7 @@ export function EnergySections() {
             className="relative"
           >
             <p className="text-xs uppercase tracking-[0.2em] text-zinc-400">Solutions</p>
-            <h3 className="mt-3 text-2xl font-semibold text-zinc-100 md:text-4xl">
+            <h3 className="font-display mt-3 text-2xl font-semibold text-zinc-100 md:text-4xl">
               End-to-end workflows for product, growth, and support teams.
             </h3>
             <p className="mt-4 text-sm text-zinc-300 md:text-base">
@@ -282,7 +317,7 @@ export function EnergySections() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.25 }}
             transition={{ duration: 0.55, delay: 0.07 }}
-            className="relative rounded-3xl border border-white/10 bg-black/40 p-6 backdrop-blur-xl"
+            className="relative rounded-3xl border border-white/10 bg-slate-900/50 p-6 backdrop-blur-xl"
           >
             <div className="flex items-center gap-2 text-zinc-200">
               <PanelsTopLeft className="h-4 w-4" />
@@ -310,25 +345,51 @@ export function EnergySections() {
 
 
       <section id="performance" className="px-6 py-20 md:px-10">
-        <div className="mx-auto max-w-7xl">
+        <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-slate-900/70 via-slate-900/45 to-slate-950/60 p-6 md:p-10">
+          <div className="pointer-events-none absolute -left-16 top-0 h-44 w-44 rounded-full bg-indigo-500/20 blur-3xl" />
+          <div className="pointer-events-none absolute -bottom-20 right-0 h-56 w-56 rounded-full bg-cyan-400/10 blur-3xl" />
           <p className="text-center text-xs uppercase tracking-[0.2em] text-zinc-400">Performance</p>
-          <h3 className="mt-3 text-center text-2xl font-semibold text-zinc-100 md:text-4xl">
+          <h3 className="font-display mt-3 text-center text-2xl font-semibold text-zinc-100 md:text-4xl">
             Data-backed performance, built for scale.
           </h3>
+          <p className="mx-auto mt-4 max-w-2xl text-center text-sm text-zinc-300 md:text-base">
+            Live system reliability and delivery velocity signals that product and engineering teams can act on in real time.
+          </p>
+
           <div className="mt-10 grid gap-4 md:grid-cols-3">
             {metrics.map((metric, i) => (
               <motion.div
                 key={metric.label}
-                initial={{ opacity: 0, y: 16 }}
+                initial={{ opacity: 0, y: 18 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                whileHover={{ y: -4, scale: 1.015 }}
+                whileHover={{ y: -6, scale: 1.02 }}
                 viewport={{ once: true, amount: 0.25 }}
-                transition={{ delay: i * 0.08, duration: 0.4 }}
-                className="group relative overflow-hidden rounded-2xl border border-white/10 bg-black/35 p-6 text-center backdrop-blur-xl"
+                transition={{ delay: i * 0.08, duration: 0.42, ease: "easeOut" }}
+                className="group relative overflow-hidden rounded-2xl border border-white/10 bg-slate-900/70 p-6 backdrop-blur-xl"
               >
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-indigo-500/15 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                <div className="text-3xl font-semibold text-zinc-100">{metric.value}</div>
-                <div className="mt-2 text-xs uppercase tracking-[0.15em] text-zinc-400">{metric.label}</div>
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-indigo-400/15 via-transparent to-cyan-300/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                <div className="pointer-events-none absolute -right-8 -top-8 h-24 w-24 rounded-full bg-white/10 blur-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+
+                <div className="relative flex items-center justify-between">
+                  <span className="inline-flex rounded-full border border-white/15 bg-white/[0.04] px-2.5 py-1 text-[10px] uppercase tracking-[0.18em] text-zinc-300">
+                    Live KPI
+                  </span>
+                  <span className="text-xs text-zinc-500">0{i + 1}</span>
+                </div>
+
+                <div className="relative mt-5 text-4xl font-semibold tracking-tight text-zinc-100">{metric.value}</div>
+                <div className="relative mt-2 text-xs uppercase tracking-[0.15em] text-zinc-400">{metric.label}</div>
+
+                <div className="relative mt-6 h-1.5 w-full overflow-hidden rounded-full bg-white/10">
+                  <motion.div
+                    initial={{ width: 0 }}
+                    whileInView={{ width: `${78 + i * 8}%` }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.18 + i * 0.08, duration: 0.7, ease: "easeOut" }}
+                    className="h-full rounded-full bg-gradient-to-r from-indigo-300 via-indigo-200 to-cyan-200"
+                  />
+                </div>
+
                 <span className="pointer-events-none absolute inset-x-10 bottom-0 h-px scale-x-0 bg-gradient-to-r from-transparent via-indigo-300 to-transparent transition-transform duration-300 group-hover:scale-x-100" />
               </motion.div>
             ))}
@@ -347,7 +408,7 @@ export function EnergySections() {
           <div className="pointer-events-none absolute -left-20 top-0 h-56 w-56 rounded-full bg-indigo-500/15 blur-3xl" />
           <div className="pointer-events-none absolute -bottom-20 right-0 h-64 w-64 rounded-full bg-cyan-400/10 blur-3xl" />
           <p className="text-xs uppercase tracking-[0.2em] text-zinc-400">Contact</p>
-          <h3 className="mt-3 text-2xl font-semibold text-zinc-100 md:text-4xl">
+          <h3 className="font-display mt-3 text-2xl font-semibold text-zinc-100 md:text-4xl">
             Start your SaaS rollout with experts.
           </h3>
           <div className="mt-6 flex flex-wrap gap-3">
