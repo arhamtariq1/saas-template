@@ -6,10 +6,10 @@ import { Menu, X } from "lucide-react"
 import { useEffect, useState } from "react"
 
 const navItems = [
-  { label: "Products", href: "#products", featured: true },
-  { label: "Solutions", href: "#solutions", featured: false },
-  { label: "Performance", href: "#performance", featured: false },
-  { label: "Projects", href: "#projects", featured: false },
+  { label: "Features", href: "#products", featured: true },
+  { label: "Use Cases", href: "#solutions", featured: false },
+  { label: "Reliability", href: "#performance", featured: false },
+  { label: "Customers", href: "#projects", featured: false },
   { label: "Contact", href: "#contact", featured: false },
 ] as const
 

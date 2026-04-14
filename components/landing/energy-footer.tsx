@@ -13,31 +13,31 @@ export function EnergyFooter() {
             Black.
           </p>
           <p className="mt-4 max-w-sm text-sm leading-relaxed text-zinc-400">
-            Building intelligent solar and energy systems for homes, enterprises, and industrial infrastructure.
+            Building intelligent SaaS workflows for product, growth, and support teams across modern organizations.
           </p>
         </div>
 
         <div>
-          <p className="text-xs uppercase tracking-[0.18em] text-zinc-400">Products</p>
+          <p className="text-xs uppercase tracking-[0.18em] text-zinc-400">Features</p>
           <ul className="mt-4 space-y-2 text-sm text-zinc-300">
-            <li><a href="#products" className="hover:text-white">Hybrid Inverters</a></li>
-            <li><a href="#products" className="hover:text-white">Solar Storage</a></li>
-            <li><a href="#products" className="hover:text-white">Smart Panels</a></li>
+            <li><a href="#products" className="hover:text-white">Workflow Automation</a></li>
+            <li><a href="#products" className="hover:text-white">Realtime Analytics</a></li>
+            <li><a href="#products" className="hover:text-white">Enterprise Security</a></li>
           </ul>
         </div>
 
         <div>
           <p className="text-xs uppercase tracking-[0.18em] text-zinc-400">Company</p>
           <ul className="mt-4 space-y-2 text-sm text-zinc-300">
-            <li><a href="#solutions" className="hover:text-white">Solutions</a></li>
-            <li><a href="#projects" className="hover:text-white">Projects</a></li>
+            <li><a href="#solutions" className="hover:text-white">Use Cases</a></li>
+            <li><a href="#projects" className="hover:text-white">Customers</a></li>
             <li><a href="#contact" className="hover:text-white">Contact</a></li>
           </ul>
         </div>
 
         <div>
           <p className="text-xs uppercase tracking-[0.18em] text-zinc-400">Connect</p>
-          <p className="mt-4 text-sm text-zinc-300">sales@black.com</p>
+          <p className="mt-4 text-sm text-zinc-300">hello@blacksaas.com</p>
           <div className="mt-4 flex items-center gap-2">
             <a href="#" aria-label="Facebook" className="rounded-full border border-white/15 p-2 text-zinc-300 hover:text-white"><Facebook className="h-4 w-4" /></a>
             <a href="#" aria-label="Instagram" className="rounded-full border border-white/15 p-2 text-zinc-300 hover:text-white"><Instagram className="h-4 w-4" /></a>

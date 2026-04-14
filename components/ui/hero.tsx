@@ -5,6 +5,7 @@ import { motion } from "framer-motion"
 import Link from "next/link"
 
 import { Button } from "@/components/ui/button"
+import ImageReveal from "@/components/ui/image-tiles"
 import { cn } from "@/lib/utils"
 
 type HeroAction = {
@@ -23,12 +24,6 @@ type HeroProps = Omit<React.ComponentPropsWithoutRef<"section">, "title"> & {
   subtitleClassName?: string
   actionsClassName?: string
 }
-
-const trustStats = [
-  { label: "Active Deployments", value: "25K+" },
-  { label: "Avg. Efficiency Gain", value: "31%" },
-  { label: "Monitoring Uptime", value: "99.99%" },
-] as const
 
 const Hero = React.forwardRef<HTMLElement, HeroProps>(
   (
@@ -122,7 +117,7 @@ const Hero = React.forwardRef<HTMLElement, HeroProps>(
           whileInView={{ y: 0, opacity: 1 }}
           className="relative z-50 container flex flex-1 -translate-y-20 flex-col justify-center gap-4 px-5 md:px-10"
         >
-          <div className="flex flex-col items-center space-y-4 text-center mt-20">
+          <div className="flex flex-col items-center space-y-4 text-center mt-32">
             {/* <motion.p
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -133,10 +128,10 @@ const Hero = React.forwardRef<HTMLElement, HeroProps>(
               Next-gen AI energy intelligence
             </motion.p> */}
             <motion.h1
-              initial={{ opacity: 0, y: 18, scale: 0.98 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              initial={{ opacity: 0, y: 22, scale: 0.97, filter: "blur(8px)" }}
+              whileInView={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
               viewport={{ once: true }}
-              transition={{ delay: 0.45, duration: 0.6, ease: "easeOut" }}
+              transition={{ delay: 0.45, duration: 0.72, ease: "easeOut" }}
               className={cn(
                 "text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl",
                 titleClassName,
@@ -164,14 +159,23 @@ const Hero = React.forwardRef<HTMLElement, HeroProps>(
                 className={cn("flex gap-4", actionsClassName)}
               >
                 {actions.map((action, index) => (
-                  <Button
+                  <motion.div
                     key={index}
-                    variant={action.variant || "default"}
-                    asChild
-                    className="transition-transform duration-300 hover:-translate-y-0.5"
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.78 + index * 0.08, duration: 0.42, ease: "easeOut" }}
+                    whileHover={{ y: -4, scale: 1.03 }}
+                    whileTap={{ scale: 0.98 }}
                   >
-                    <Link href={action.href}>{action.label}</Link>
-                  </Button>
+                    <Button
+                      variant={action.variant || "default"}
+                      asChild
+                      className="transition-transform duration-300"
+                    >
+                      <Link href={action.href}>{action.label}</Link>
+                    </Button>
+                  </motion.div>
                 ))}
               </motion.div>
             )}
@@ -181,23 +185,16 @@ const Hero = React.forwardRef<HTMLElement, HeroProps>(
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.6, duration: 0.5 }}
-              className="mt-8 grid w-full max-w-3xl gap-3 rounded-2xl border border-white/10 bg-black/35 p-4 backdrop-blur-xl sm:grid-cols-3"
+              className="relative mt-6 w-full max-w-4xl"
             >
-              {trustStats.map((item, index) => (
-                <motion.div
-                  key={item.label}
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.75 + index * 0.07, duration: 0.4 }}
-                  className="rounded-xl border border-white/10 bg-white/[0.02] px-3 py-3"
-                >
-                  <p className="text-xl font-semibold text-zinc-100 md:text-2xl">{item.value}</p>
-                  <p className="mt-1 text-[11px] uppercase tracking-[0.15em] text-zinc-400">
-                    {item.label}
-                  </p>
-                </motion.div>
-              ))}
+              <div className="relative flex justify-center">
+                <ImageReveal
+                  leftImage="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=80"
+                  middleImage="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=80"
+                  rightImage="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1400&q=80"
+                  fourthImage="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1400&q=80"
+                />
+              </div>
             </motion.div>
           </div>
         </motion.div>
@@ -212,24 +209,24 @@ function HeroDemo() {
     <Hero
       title={
         <>
-          Powering a smarter <span className="bg-gradient-to-r from-white via-zinc-300 to-zinc-500 bg-clip-text text-transparent">solar future</span>.
+          Building a faster <span className="bg-gradient-to-r from-white via-zinc-300 to-zinc-500 bg-clip-text text-transparent">SaaS future</span>.
         </>
       }
-      subtitle="Advanced AI automation for energy systems, predictive optimization, and real-time performance control."
+      subtitle="AI-powered workflows for product teams, with real-time analytics, automation, and enterprise-grade reliability."
       actions={[
         {
-          label: "Explore products",
+          label: "Explore features",
           href: "#",
           variant: "outline",
         },
         {
-          label: "Get proposal",
+          label: "Start free trial",
           href: "#",
           variant: "default",
         },
       ]}
       titleClassName="max-w-5xl text-5xl font-extrabold leading-[0.95] md:text-7xl"
-      subtitleClassName="max-w-[760px] text-md text-zinc-300 md:text-lg"
+      subtitleClassName="max-w-[760px] text-sm !mb-7 text-zinc-300 md:text-lg"
       actionsClassName="mt-8"
     />
   )
