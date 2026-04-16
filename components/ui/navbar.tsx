@@ -54,11 +54,12 @@ export function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.28 }}
-            className="fixed inset-0 z-[100] bg-slate-950/85 backdrop-blur-sm"
+            className="fixed inset-0 z-[100] bg-black/92 backdrop-blur-xl"
           >
-            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.08),transparent_55%)]" />
-            <nav className="relative mx-auto flex min-h-screen w-full max-w-[1400px] items-center px-6 md:px-12">
-              <div className="mx-auto w-full max-w-sm space-y-8">
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(99,102,241,0.12),transparent_56%)]" />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/50 via-black/20 to-black/60" />
+            <nav className="relative flex min-h-screen w-full items-center justify-center px-6 md:px-12">
+              <div className="w-full max-w-sm space-y-7 text-center">
                 {navItems.map((item, i) => (
                   <motion.a
                     key={item.label}
@@ -67,9 +68,9 @@ export function Navbar() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.06 * i }}
                     onClick={() => setOpen(false)}
-                    className="group block text-left text-3xl font-medium uppercase tracking-[0.03em] text-zinc-100 transition hover:text-white md:text-3xl"
+                    className="group block text-3xl font-medium uppercase tracking-[0.03em] text-zinc-100 transition hover:text-white md:text-3xl"
                   >
-                    <span className="inline-flex items-center gap-2">
+                    <span className="inline-flex items-center justify-center gap-2">
                       {item.label}
                       {item.featured ? (
                         <span className="text-xl text-zinc-300 transition group-hover:translate-x-1">→</span>

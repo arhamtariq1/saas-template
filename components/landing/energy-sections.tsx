@@ -8,6 +8,7 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Gallery4, type Gallery4Item } from "@/components/ui/gallery4"
 import { PricingWithChart } from "@/components/ui/pricing-with-chart"
+import { ScrollReveal, StaggerScroll, staggerItem } from "@/components/ui/site-motion"
 
 const products = [
   {
@@ -161,18 +162,15 @@ export function EnergySections() {
             </motion.div>
           </motion.div>
 
-          <div className="grid border-y border-white/10 md:grid-cols-3">
+          <StaggerScroll className="grid border-y border-white/10 md:grid-cols-3">
             {products.map((item, i) => {
               const Icon = item.icon
               const panelId = `.0${i + 1}`
               return (
                 <motion.article
                   key={item.title}
-                  initial={{ opacity: 0, y: 18 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  variants={staggerItem}
                   whileHover={{ y: -6 }}
-                  viewport={{ once: true, amount: 0.3 }}
-                  transition={{ duration: 0.45, delay: i * 0.07, ease: "easeOut" }}
                   className="group relative min-h-[220px] border-b border-white/10 px-6 py-8 md:min-h-[250px] md:border-b-0 md:border-r md:border-white/10 md:px-8 md:py-10 last:border-r-0"
                 >
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-indigo-500/10 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
@@ -194,11 +192,12 @@ export function EnergySections() {
                 </motion.article>
               )
             })}
-          </div>
+          </StaggerScroll>
         </div>
       </section>
 
       <section className="px-0 pb-8 md:pb-12">
+        <ScrollReveal preset="fade" duration={0.6}>
         <div className="relative overflow-hidden border-y border-white/10 bg-slate-950/55 py-3">
           <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-background to-transparent" />
           <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-background to-transparent" />
@@ -219,10 +218,12 @@ export function EnergySections() {
             ))}
           </motion.div>
         </div>
+        </ScrollReveal>
       </section>
 
       <section className="px-6 py-20 md:px-10">
         <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.85fr_1.15fr]">
+          <ScrollReveal preset="fade-right" className="min-w-0">
           <div>
             <p className="text-xs uppercase tracking-[0.2em] text-zinc-400">Capabilities</p>
             <h3 className="mt-3 text-3xl font-semibold text-zinc-100 md:text-5xl">
@@ -236,7 +237,9 @@ export function EnergySections() {
               Contact sales
             </Button>
           </div>
+          </ScrollReveal>
 
+          <ScrollReveal preset="fade-left" delay={0.08} className="min-w-0">
           <div className="flex min-h-[340px] gap-3 overflow-hidden">
             {capabilityPanels.map((item, idx) => {
               const isActive = idx === activeCapability
@@ -283,6 +286,7 @@ export function EnergySections() {
               )
             })}
           </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -334,6 +338,7 @@ export function EnergySections() {
       </section>
 
       <section id="case-studies" className="px-6 py-20 md:px-10">
+        <ScrollReveal preset="zoom-in" duration={0.65}>
         <div className="mx-auto max-w-7xl">
           <Gallery4
             title="Case studies from modern SaaS teams."
@@ -341,6 +346,7 @@ export function EnergySections() {
             items={caseStudyItems}
           />
         </div>
+        </ScrollReveal>
       </section>
 
 
@@ -348,6 +354,8 @@ export function EnergySections() {
         <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-slate-900/70 via-slate-900/45 to-slate-950/60 p-6 md:p-10">
           <div className="pointer-events-none absolute -left-16 top-0 h-44 w-44 rounded-full bg-indigo-500/20 blur-3xl" />
           <div className="pointer-events-none absolute -bottom-20 right-0 h-56 w-56 rounded-full bg-cyan-400/10 blur-3xl" />
+          <ScrollReveal preset="fade-up">
+          <div>
           <p className="text-center text-xs uppercase tracking-[0.2em] text-zinc-400">Performance</p>
           <h3 className="font-display mt-3 text-center text-2xl font-semibold text-zinc-100 md:text-4xl">
             Data-backed performance, built for scale.
@@ -355,16 +363,15 @@ export function EnergySections() {
           <p className="mx-auto mt-4 max-w-2xl text-center text-sm text-zinc-300 md:text-base">
             Live system reliability and delivery velocity signals that product and engineering teams can act on in real time.
           </p>
+          </div>
+          </ScrollReveal>
 
-          <div className="mt-10 grid gap-4 md:grid-cols-3">
+          <StaggerScroll className="mt-10 grid gap-4 md:grid-cols-3">
             {metrics.map((metric, i) => (
               <motion.div
                 key={metric.label}
-                initial={{ opacity: 0, y: 18 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                variants={staggerItem}
                 whileHover={{ y: -6, scale: 1.02 }}
-                viewport={{ once: true, amount: 0.25 }}
-                transition={{ delay: i * 0.08, duration: 0.42, ease: "easeOut" }}
                 className="group relative overflow-hidden rounded-2xl border border-white/10 bg-slate-900/70 p-6 backdrop-blur-xl"
               >
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-indigo-400/15 via-transparent to-cyan-300/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
@@ -393,17 +400,20 @@ export function EnergySections() {
                 <span className="pointer-events-none absolute inset-x-10 bottom-0 h-px scale-x-0 bg-gradient-to-r from-transparent via-indigo-300 to-transparent transition-transform duration-300 group-hover:scale-x-100" />
               </motion.div>
             ))}
-          </div>
+          </StaggerScroll>
         </div>
       </section>
 
       <section id="projects" className="px-6 py-20 md:px-10">
+        <ScrollReveal preset="fade-up" delay={0.05}>
         <div className="mx-auto max-w-7xl">
           <PricingWithChart />
         </div>
+        </ScrollReveal>
       </section>
 
       <section id="contact" className="px-6 pb-24 pt-8 md:px-10">
+        <ScrollReveal preset="zoom-in" duration={0.6}>
         <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-r from-white/[0.09] via-white/[0.04] to-transparent p-8 shadow-[0_30px_80px_-45px_rgba(129,140,248,0.45)] md:p-10">
           <div className="pointer-events-none absolute -left-20 top-0 h-56 w-56 rounded-full bg-indigo-500/15 blur-3xl" />
           <div className="pointer-events-none absolute -bottom-20 right-0 h-64 w-64 rounded-full bg-cyan-400/10 blur-3xl" />
@@ -418,6 +428,7 @@ export function EnergySections() {
             </Button>
           </div>
         </div>
+        </ScrollReveal>
       </section>
     </div>
   )

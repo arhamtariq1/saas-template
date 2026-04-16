@@ -2,10 +2,12 @@
 
 import * as React from "react"
 import { motion } from "framer-motion"
+import { ArrowRight } from "lucide-react"
 import Link from "next/link"
 
 import { Button } from "@/components/ui/button"
 import ImageReveal from "@/components/ui/image-tiles"
+import { ScrollReveal } from "@/components/ui/site-motion"
 import { cn } from "@/lib/utils"
 
 type HeroAction = {
@@ -171,22 +173,24 @@ const Hero = React.forwardRef<HTMLElement, HeroProps>(
                     <Button
                       variant={action.variant || "default"}
                       asChild
-                      className="transition-transform duration-300"
+                      className={cn(
+                        "group relative h-12 overflow-hidden rounded-full px-6 text-sm font-medium tracking-[0.01em] transition-all duration-300",
+                        action.variant === "outline"
+                          ? "border-white/25 bg-white/[0.04] text-zinc-100 backdrop-blur-md hover:border-indigo-300/50 hover:bg-white/[0.08] hover:text-white"
+                          : "border border-indigo-300/40 bg-gradient-to-r from-indigo-300 via-indigo-200 to-cyan-200 text-slate-950 shadow-[0_14px_35px_-18px_rgba(129,140,248,0.9)] hover:shadow-[0_18px_45px_-18px_rgba(129,140,248,1)]",
+                      )}
                     >
-                      <Link href={action.href}>{action.label}</Link>
+                      <Link href={action.href} className="inline-flex items-center gap-2">
+                        <span>{action.label}</span>
+                        <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                      </Link>
                     </Button>
                   </motion.div>
                 ))}
               </motion.div>
             )}
 
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.6, duration: 0.5 }}
-              className="relative mt-6 w-full max-w-4xl"
-            >
+            <ScrollReveal preset="zoom-in" delay={0.12} duration={0.65} className="relative mt-6 w-full max-w-4xl">
               <div className="relative flex justify-center">
                 <ImageReveal
                   leftImage="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1600&q=80"
@@ -195,7 +199,7 @@ const Hero = React.forwardRef<HTMLElement, HeroProps>(
                   fourthImage="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&w=1600&q=80"
                 />
               </div>
-            </motion.div>
+            </ScrollReveal>
           </div>
         </motion.div>
       </section>
@@ -209,7 +213,7 @@ function HeroDemo() {
     <Hero
       title={
         <>
-          Building a faster <span className="bg-gradient-to-r from-white via-zinc-300 to-zinc-500 bg-clip-text text-transparent">SaaS future</span>.
+          Building a faster <span className="bg-gradient-to-r from-white via-zinc-300 to-zinc-500 bg-clip-text text-transparent">SaaS future.</span>
         </>
       }
       subtitle="AI-powered workflows for product teams, with real-time analytics, automation, and enterprise-grade reliability."

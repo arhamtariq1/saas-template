@@ -2,11 +2,14 @@
 
 import { Facebook, Instagram, Linkedin, Youtube } from "lucide-react"
 
+import { ScrollReveal } from "@/components/ui/site-motion"
+
 export function EnergyFooter() {
   const year = new Date().getFullYear()
 
   return (
     <footer className="border-t border-white/10 bg-slate-950/55 px-6 py-12 md:px-10">
+      <ScrollReveal preset="fade-up" duration={0.55}>
       <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-[1.2fr_0.8fr_0.8fr_0.8fr]">
         <div>
           <p className="font-display text-sm font-semibold tracking-[0.08em] text-zinc-100 uppercase">
@@ -50,6 +53,7 @@ export function EnergyFooter() {
       <div className="mx-auto mt-10 max-w-7xl border-t border-white/10 pt-5 text-xs text-zinc-500">
         © {year} Black Global. All rights reserved.
       </div>
+      </ScrollReveal>
     </footer>
   )
 }
